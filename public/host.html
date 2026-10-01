@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI PROMPT WAR - Host</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><div class="wrap">
+<header class="top"><div><h1 class="brand">AI PROMPT WAR</h1><span class="muted" style="letter-spacing:.2em">HOST LIVE MONITOR</span></div><button class="btn ghost sm" id="out">LOG OUT</button></header>
+<section class="hstats">
+<div class="stat glass"><span>ACTIVE PARTICIPANTS</span><b id="sA">0</b></div><div class="stat glass"><span>SUBMISSIONS</span><b id="sS">0</b></div>
+<div class="stat glass"><span>AVERAGE SCORE</span><b id="sV">0</b></div><div class="stat glass"><span>COMPLETED</span><b id="sC">0</b></div><div class="stat glass"><span>ELIMINATED</span><b id="sE">0</b></div></section>
+<div class="glass tw"><table><thead><tr><th>PARTICIPANT</th><th>SUBMISSION ID</th><th>SCORE</th><th>ROUND</th><th>STATUS</th><th>WARNINGS</th><th>TIME</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+</div>
+<div class="overlay" id="view" hidden><div class="modal glass" style="max-width:900px;text-align:left"><div class="row" style="justify-content:space-between;margin:0 0 10px"><h2 id="vt"></h2><button class="btn ghost sm" id="vx">CLOSE</button></div><p class="muted" id="vb"></p><div class="pv"><iframe id="vf" sandbox="allow-scripts allow-forms allow-modals allow-popups" title="Submission"></iframe></div></div></div>
+<script src="/js/preview-shim.js"></script><script src="/js/host.js"></script></body></html>

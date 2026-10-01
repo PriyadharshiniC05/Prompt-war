@@ -1,0 +1,9 @@
+{
+  "name": "ai-prompt-war",
+  "version": "1.0.0",
+  "description": "AI PROMPT WAR - individual AI website-building competition",
+  "main": "server/server.js",
+  "scripts": { "start": "node server/server.js", "test": "node tests/flow.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": { "dotenv": "^16.4.5", "express": "^4.19.2" }
+}

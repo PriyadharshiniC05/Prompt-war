@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI PROMPT WAR</title><link rel="stylesheet" href="/css/style.css"></head>
+<body class="war-bg"><div class="wrap">
+<header class="top"><div><h1 class="brand">AI PROMPT WAR</h1><span class="muted">Participant: <b id="who" style="color:var(--txt)">—</b></span></div></header>
+<div class="workspace">
+<aside class="control-panel">
+<section class="stats">
+<div class="stat glass"><span>EVENT TIME</span><b id="evTime">45:00</b></div>
+<div class="stat glass"><span>PROMPT ATTEMPTS</span><b id="att">5 / 5</b></div>
+<div class="stat glass"><span>CURRENT ROUND</span><b id="rnd">ROUND 1</b></div>
+<div class="stat glass" id="warnStat"><span>WARNINGS</span><b id="warnCount">0 / 2</b></div></section>
+<ol class="steps" id="steps"><li>ROUND 1</li><li>ROUND 2</li><li>ROUND 3</li><li>ROUND 4</li><li>SUBMIT</li></ol>
+<main class="card glass">
+<div class="rhead"><div><small id="rLabel"></small><h2 id="rName"></h2></div><div class="rtime">TIME: <b id="rTime">--:--</b></div></div>
+<div id="challenge">
+<div class="assignment"><div class="assignment-kicker" id="assignmentKicker">PROBLEM STATEMENT + FEATURES</div><p class="task" id="task"></p><div id="featureList" class="feature-list"></div></div>
+<section class="puzzle-card" id="quizCard" aria-label="AI quiz" hidden>
+<div class="pz-head"><div><small>AI QUIZ · <span id="qzAttempts">2 ATTEMPTS</span></small><b id="qzTitle">Pass the quiz to unlock a ready-made prompt</b></div><div class="pz-timer" id="qzTimer">01:00</div></div>
+<div id="qzIdle"><p class="muted sm-text" id="qzIntro"></p><button class="btn" id="qzStart">START ROUND 3 QUIZ</button></div>
+<div id="qzPlay" hidden><div id="qzList"></div><div class="row"><button class="btn" id="qzSubmit" type="button">SUBMIT ANSWERS</button><span class="muted sm-text" id="qzAnswered">0 / 5 answered</span></div></div>
+<div id="qzResult" hidden><p class="qz-result" id="qzResMsg"></p><button class="btn" id="qzRetry" type="button">START ATTEMPT 2</button></div>
+<div id="qzWon" hidden><p class="qz-ok" id="qzWonMsg"></p><label for="reward">🎁 REWARD PROMPT</label><textarea id="reward" class="reward-box" readonly></textarea><div class="row"><button class="btn sm" id="copyReward" type="button">COPY PROMPT</button><button class="btn sm" id="continueRound3" type="button">CONTINUE TO ROUND 3</button></div></div>
+<div id="qzLost" class="pz-lost" hidden><p id="qzLostMsg"></p><div class="row"><button class="btn sm" id="continueFailed" type="button">CONTINUE TO ROUND 3</button></div></div>
+</section>
+<label for="prompt">PROMPT</label><textarea id="prompt" placeholder="Write your prompt here..."></textarea>
+<div class="counter" id="counter"><div class="cbar"><i id="cbar"></i></div><div class="cline"><span><b id="cc">0</b> / <span id="cmax">2000</span> characters</span><span class="cmm" id="cmin">MAX 2000</span></div><div class="chint" id="chint"></div></div>
+<div class="rules-check" id="rulesCheck"></div>
+<div class="row"><button class="btn" id="gen">GENERATE WEBSITE</button><span class="remain">PROMPTS REMAINING <b id="remain">5</b></span></div>
+<div class="msg" id="msg" role="status"></div>
+<div class="row"><button class="btn ghost" id="next">NEXT ROUND</button><span class="grow"></span><button class="btn" id="submitBtn">SUBMIT ALL 4 ROUNDS</button></div></div>
+</main>
+</aside>
+<section class="preview-panel glass" aria-label="Live webpage review">
+<div class="preview-head"><div><small>LIVE WEBPAGE REVIEW</small><h2>Generated Website</h2></div><div class="preview-actions"><span class="preview-status" id="previewStatus">WAITING FOR GENERATION</span><button class="btn ghost sm" id="refreshPreview" disabled>↻ REFRESH</button></div></div>
+<div class="pv" id="pv" hidden><iframe id="preview" sandbox="allow-scripts allow-forms allow-modals allow-popups" title="Website preview"></iframe></div>
+<div class="empty-preview" id="emptyPreview"><div><div class="empty-icon">✦</div><h3>Your generated webpage will appear here</h3><p>Generate a website to review it live in this isolated preview.</p></div></div>
+</section>
+</div></div>
+<div class="overlay gate" id="gate" hidden><div class="modal glass gate-modal"><h2 class="brand">SECURE EVENT MODE</h2><p class="muted">This event runs in locked fullscreen.</p><ul class="rules"><li>Stay in fullscreen for the whole event.</li><li>Do not switch tabs, windows or apps.</li><li>Every violation shows a warning — you get <b>2 warnings</b>.</li><li>The <b>3rd violation automatically submits your work and eliminates you.</b></li></ul><div class="gate-note" id="gateNote"></div><button class="btn" id="gateBtn">ENTER FULLSCREEN &amp; BEGIN</button></div></div>
+<div class="overlay top-layer" id="warn" hidden><div class="modal glass warn-modal"><div class="warn-icon">⚠</div><h2 id="warnTitle"></h2><p id="warnText" class="muted"></p><button class="btn" id="warnBtn">RETURN TO FULLSCREEN</button></div></div>
+<div class="overlay top-layer" id="elim" hidden><div class="modal glass warn-modal"><div class="warn-icon">⛔</div><h2 style="color:var(--bad)">YOU HAVE BEEN ELIMINATED</h2><p class="muted">You left the secure event screen too many times. Your work so far was submitted automatically.</p><div class="kv"><small>Submission ID</small><b id="elimId">—</b></div><button class="btn ghost" id="elimBack">BACK TO LOGIN</button></div></div>
+<div class="overlay" id="confirm" hidden><div class="modal glass"><h2>FINAL SUBMISSION</h2><p class="muted">Submit all four round websites for evaluation?</p><div class="row" style="justify-content:center"><button class="btn ghost" id="cNo">CANCEL</button><button class="btn" id="cYes">SUBMIT</button></div><div class="err" id="cErr"></div></div></div>
+<div class="overlay" id="done" hidden><div class="modal glass score-modal"><h2 class="brand">SUBMISSION SUCCESSFUL</h2><div class="kv"><small>Submission ID</small><b id="subId"></b></div><div class="final-score"><small>FINAL SCORE</small><strong id="subScore">0</strong><span>/ 100</span></div><div class="score-grid" id="scoreGrid"></div><button class="btn download-btn" id="downloadBtn">DOWNLOAD WEBSITE</button><div class="kv"><small>Next session</small><div class="big" id="cd">01:00</div></div></div></div>
+<div class="overlay" id="expired" hidden><div class="modal glass"><h2 style="color:var(--bad)">EVENT TIME COMPLETED</h2><p class="muted">Generation and submission are locked. This account is now free for the next participant.</p><button class="btn" id="back" style="margin-top:18px">BACK TO LOGIN</button></div></div>
+<script src="/js/promptcheck.js"></script><script src="/js/preview-shim.js"></script><script src="/js/participant.js"></script></body></html>

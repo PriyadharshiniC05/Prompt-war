@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Technical Event: AI Prompt War — Rules & Instructions</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="war-bg">
+<main class="instructions-page">
+  <section class="instructions-card glass">
+    <div class="instructions-kicker">TECHNICAL EVENT</div>
+    <h1 class="instructions-title">AI PROMPT WAR</h1>
+    <p class="instructions-subtitle">GENERAL RULES &amp; INSTRUCTIONS <span>(Individual participant only)</span></p>
+
+    <div class="rules-section">
+      <ol>
+        <li>Participants must create one complete and functional website using AI.</li>
+        <li>Each participant is allowed a maximum of <strong>5 AI prompt attempts</strong> throughout the competition.</li>
+        <li>The website should be clean, attractive, responsive, and user-friendly.</li>
+        <li>All required features must work properly, and the completed website must be submitted within the given time limit.</li>
+        <li>Participants must create their prompts during the competition. Pre-written or copied prompts are not permitted.</li>
+      </ol>
+    </div>
+
+    <div class="round-rules">
+      <article class="round-rule">
+        <div class="round-rule-head"><span>ROUND 1</span><b>PROMPT STARTER</b><em>5 minutes</em></div>
+        <ol>
+          <li>A simple website problem statement will be provided.</li>
+          <li>Participants must create their own prompt.</li>
+          <li>The AI will generate the website based on the prompt.</li>
+          <li>Only basic functionality is expected.</li>
+        </ol>
+      </article>
+
+      <article class="round-rule">
+        <div class="round-rule-head"><span>ROUND 2</span><b>ROLE PROMPT CHALLENGE</b><em>8 minutes</em></div>
+        <ol>
+          <li>A moderate website requirement will be provided.</li>
+          <li>Participants must assign a suitable role to the AI.</li>
+          <li>The website should contain multiple functional features.</li>
+        </ol>
+      </article>
+
+      <article class="round-rule">
+        <div class="round-rule-head"><span>ROUND 3</span><b>COMPLEX SCENARIO</b><em>10 minutes</em></div>
+        <ol>
+          <li>A complex scenario with multiple requirements will be given.</li>
+          <li>Participants must communicate several conditions clearly.</li>
+          <li>The generated website must contain working functionality.</li>
+          <li>Judges will test the important features.</li>
+        </ol>
+      </article>
+
+      <article class="round-rule">
+        <div class="round-rule-head"><span>ROUND 4</span><b>FINAL PROMPT WAR</b><em>17 minutes</em></div>
+        <ol>
+          <li>A surprise problem statement will be announced.</li>
+          <li>Participants must understand the problem quickly.</li>
+          <li>Only their remaining AI prompt attempts can be used.</li>
+          <li>The final website must be functional.</li>
+          <li>Judges will conduct a live demonstration and functionality test.</li>
+        </ol>
+      </article>
+    </div>
+
+    <div class="instructions-footer">
+      <p>Read all rules carefully before entering the competition.</p>
+      <button class="btn instructions-continue" id="continueBtn">CONTINUE TO EVENT</button>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  const token = sessionStorage.getItem('apw_token');
+  if (!token) { location.href = '/'; return; }
+  document.getElementById('continueBtn').addEventListener('click', function () {
+    location.href = '/participant';
+  });
+})();
+</script>
+</body>
+</html>
